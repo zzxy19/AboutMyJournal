@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "820427857554",
+    "firebase_url": "https://aboutme-rs3k.firebaseio.com",
+    "project_id": "aboutme-rs3k",
+    "storage_bucket": "aboutme-rs3k.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:820427857554:android:77705a9bb6567418",
+        "android_client_info": {
+          "package_name": "com.amalright.aboutme"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "820427857554-hjpei046vvcjk8m0qjuoqepe2dgcvtap.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNTm_YYny8ELOJoy1lJ7DOjvBI18ocjys"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
