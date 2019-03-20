@@ -4,13 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-
+import com.amalright.aboutme.journal.JournalDatabase;
 import com.amalright.aboutme.journal.Journal;
 
 public class JournalTimelineActivity extends AppCompatActivity
@@ -19,6 +16,7 @@ public class JournalTimelineActivity extends AppCompatActivity
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+    initializeDatastore();
     setContentView(R.layout.activity_journal_timeline);
 
     // Set up toolbar/appbar
@@ -40,5 +38,9 @@ public class JournalTimelineActivity extends AppCompatActivity
   @Override
   public void onListFragmentInteraction(Journal item) {
 
+  }
+
+  private void initializeDatastore() {
+    JournalDatabase.createInstance(getApplicationContext());
   }
 }

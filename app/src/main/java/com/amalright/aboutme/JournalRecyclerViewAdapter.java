@@ -10,21 +10,21 @@ import com.amalright.aboutme.JournalFragment.OnListFragmentInteractionListener;
 import com.amalright.aboutme.journal.Journal;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 /**
  * {@link RecyclerView.Adapter} that can display a {@link Journal} and makes a call to the
  * specified {@link OnListFragmentInteractionListener}.
- * TODO: Replace the implementation with code for your data type.
  */
 public class JournalRecyclerViewAdapter extends RecyclerView.Adapter<JournalRecyclerViewAdapter.ViewHolder> {
 
   private final List<Journal> mValues;
   private final OnListFragmentInteractionListener mListener;
 
-  public JournalRecyclerViewAdapter(List<Journal> items, OnListFragmentInteractionListener listener) {
-    mValues = items;
+  public JournalRecyclerViewAdapter(OnListFragmentInteractionListener listener) {
+    mValues = new ArrayList<>();
     mListener = listener;
   }
 
@@ -41,9 +41,9 @@ public class JournalRecyclerViewAdapter extends RecyclerView.Adapter<JournalRecy
     holder.mTimeLogged.setText(
         new SimpleDateFormat("yyyy/MM/dd HH:mm:ss")
             .format(
-                new Date(mValues.get(position).getTimeLogged())));
-    holder.mScoreView.setText(String.valueOf(mValues.get(position).getHappinessScore()));
-    holder.mTitleView.setText(mValues.get(position).getTitle());
+                new Date(mValues.get(position).timeLoggedUs)));
+    holder.mScoreView.setText(String.valueOf(mValues.get(position).happinessScore));
+    holder.mTitleView.setText(mValues.get(position).title);
 
     holder.mView.setOnClickListener(new View.OnClickListener() {
       @Override
@@ -60,6 +60,11 @@ public class JournalRecyclerViewAdapter extends RecyclerView.Adapter<JournalRecy
   @Override
   public int getItemCount() {
     return mValues.size();
+  }
+
+  public void appendJournals(List<Journal> journals) {
+    System.out.println(String.format("Appending %d journals...", journals.size()));
+    mValues.addAll(journals);
   }
 
   public class ViewHolder extends RecyclerView.ViewHolder {

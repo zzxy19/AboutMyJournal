@@ -1,44 +1,26 @@
 package com.amalright.aboutme.journal;
 
+import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
+import android.support.annotation.NonNull;
+
+/**
+ * This class corresponds to the data stored in Room persistence library.
+ */
+@Entity(tableName = "journal")
 public class Journal {
-  private long timeLogged;
-  private String title;
-  private int happinessScore;
-  private long id;
+  @PrimaryKey
+  @NonNull
+  @ColumnInfo(name = "journal_id")
+  public long id;
 
-  public long getId() {
-    return id;
-  }
+  @ColumnInfo(name = "time_logged_us")
+  public long timeLoggedUs;
 
-  public Journal setId(long id) {
-    this.id = id;
-    return this;
-  }
+  @ColumnInfo(name = "title")
+  public String title;
 
-  public long getTimeLogged() {
-    return timeLogged;
-  }
-
-  public Journal setTimeLogged(long timeLogged) {
-    this.timeLogged = timeLogged;
-    return this;
-  }
-
-  public String getTitle() {
-    return title;
-  }
-
-  public Journal setTitle(String title) {
-    this.title = title;
-    return this;
-  }
-
-  public int getHappinessScore() {
-    return happinessScore;
-  }
-
-  public Journal setHappinessScore(int happinessScore) {
-    this.happinessScore = happinessScore;
-    return this;
-  }
+  @ColumnInfo(name = "happiness_score")
+  public int happinessScore;
 }
